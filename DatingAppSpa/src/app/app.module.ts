@@ -5,18 +5,17 @@ import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-//import { BlogComponent } from './blog/blog.component';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ValuesComponent } from './values/values.component';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
 
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
-      //BlogComponent,
       HomeComponent,
       RegisterComponent,
       ValuesComponent
@@ -27,7 +26,8 @@ import { ValuesComponent } from './values/values.component';
       FormsModule
    ],
    providers: [
-      AuthService
+      AuthService,
+      ErrorInterceptorProvider
    ],
    bootstrap: [
       AppComponent

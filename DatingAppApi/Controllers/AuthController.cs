@@ -51,6 +51,8 @@ namespace DatingAppApi.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+            //throw new ArgumentException("Dummy exception for login at API");
+
             var userFromRepo = await _userRepository.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)
@@ -79,6 +81,8 @@ namespace DatingAppApi.Controllers
             var token = tokenHandler.WriteToken(securityToken);
 
             return Ok(new { Token = token });
+
+
+        }
     }
-}
 }
